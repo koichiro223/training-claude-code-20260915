@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="520" viewBox="0 0 760 520" font-family="sans-serif">
+  <rect width="760" height="520" fill="#ffffff"/>
+  <text x="20" y="30" font-size="18" font-weight="bold" fill="#1f2937">ER図：赤ちゃん生活ログアプリ（ローカル保存）</text>
+
+  <!-- LogEntry -->
+  <g>
+    <rect x="40" y="70" width="260" height="278" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="40" y="70" width="260" height="34" rx="8" fill="#3b82f6"/>
+    <text x="52" y="93" font-size="15" font-weight="bold" fill="#ffffff">LogEntry（生活ログ記録）</text>
+    <text x="52" y="128" font-size="13" fill="#111827">PK  id: string</text>
+    <text x="52" y="152" font-size="13" fill="#111827">    type: EventType</text>
+    <text x="52" y="176" font-size="13" fill="#111827">    occurredAt: string (ISO8601)</text>
+    <text x="52" y="200" font-size="13" fill="#111827">    title?: string</text>
+    <text x="52" y="224" font-size="13" fill="#111827">    value?: number</text>
+    <text x="52" y="248" font-size="13" fill="#111827">    memo?: string</text>
+    <text x="52" y="272" font-size="13" fill="#111827">    createdAt / updatedAt: string</text>
+    <text x="52" y="300" font-size="12" fill="#6b7280">FK  fromScheduleId?: string</text>
+  </g>
+
+  <!-- Schedule -->
+  <g>
+    <rect x="460" y="70" width="260" height="278" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+    <rect x="460" y="70" width="260" height="34" rx="8" fill="#10b981"/>
+    <text x="472" y="93" font-size="15" font-weight="bold" fill="#ffffff">Schedule（予定）</text>
+    <text x="472" y="128" font-size="13" fill="#111827">PK  id: string</text>
+    <text x="472" y="152" font-size="13" fill="#111827">    type: EventType</text>
+    <text x="472" y="176" font-size="13" fill="#111827">    title: string</text>
+    <text x="472" y="200" font-size="13" fill="#111827">    scheduledAt: string (ISO8601)</text>
+    <text x="472" y="224" font-size="13" fill="#111827">    memo?: string</text>
+    <text x="472" y="248" font-size="13" fill="#111827">    done: boolean</text>
+    <text x="472" y="272" font-size="13" fill="#111827">    doneLogId?: string</text>
+    <text x="472" y="296" font-size="13" fill="#111827">    createdAt: string</text>
+    <text x="472" y="320" font-size="13" fill="#111827">    updatedAt: string</text>
+  </g>
+
+  <!-- relationship lines (bidirectional refs) -->
+  <line x1="300" y1="176" x2="460" y2="176" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="308" y="168" font-size="11" fill="#6b7280">Schedule.doneLogId → LogEntry (0..1)</text>
+  <line x1="460" y1="300" x2="300" y2="300" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="308" y="292" font-size="11" fill="#6b7280">LogEntry.fromScheduleId → Schedule (0..1)</text>
+  <text x="308" y="318" font-size="11" fill="#6b7280">関係: Schedule 1 — 0..1 LogEntry（双方向参照）</text>
+
+  <!-- Note -->
+  <g>
+    <rect x="40" y="378" width="680" height="128" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="56" y="402" font-size="13" font-weight="bold" fill="#92400e">補足</text>
+    <text x="56" y="424" font-size="12" fill="#78350f">・データはブラウザの localStorage に JSON 配列として保存（サーバー無し／単一利用者）。</text>
+    <text x="56" y="444" font-size="12" fill="#78350f">・EventType = feeding | milk | sleepStart | sleepEnd | diaperPee | diaperPoo | bath | temperature | memo</text>
+    <text x="56" y="464" font-size="12" fill="#78350f">・実績化: Schedule.done=true, doneLogId=LogEntry.id, LogEntry.fromScheduleId=Schedule.id</text>
+    <text x="56" y="484" font-size="12" fill="#78350f">・完了取消/ログ削除時は対応する参照を解消（4.2 / 2.6）。睡眠は start/end の2レコードで表現。</text>
+  </g>
+</svg>

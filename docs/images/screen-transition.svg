@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420" font-family="sans-serif">
+  <rect width="760" height="420" fill="#ffffff"/>
+  <text x="20" y="30" font-size="18" font-weight="bold" fill="#1f2937">画面遷移図</text>
+
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <!-- Top -->
+  <rect x="300" y="60" width="160" height="70" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="380" y="90" font-size="14" font-weight="bold" fill="#1e3a8a" text-anchor="middle">トップ</text>
+  <text x="380" y="112" font-size="11" fill="#1e40af" text-anchor="middle">直近ログ / 近い予定</text>
+
+  <!-- Log -->
+  <rect x="60" y="230" width="180" height="80" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="150" y="258" font-size="13" font-weight="bold" fill="#1e3a8a" text-anchor="middle">生活ログ画面</text>
+  <text x="150" y="280" font-size="11" fill="#374151" text-anchor="middle">一覧 / 追加</text>
+  <text x="150" y="298" font-size="11" fill="#374151" text-anchor="middle">編集 / 削除</text>
+
+  <!-- Schedule -->
+  <rect x="290" y="230" width="180" height="80" rx="10" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5"/>
+  <text x="380" y="258" font-size="13" font-weight="bold" fill="#065f46" text-anchor="middle">予定画面</text>
+  <text x="380" y="280" font-size="11" fill="#374151" text-anchor="middle">一覧 / 追加 / 編集</text>
+  <text x="380" y="298" font-size="11" fill="#374151" text-anchor="middle">1タップ実績化</text>
+
+  <!-- Balloon -->
+  <rect x="520" y="230" width="180" height="80" rx="10" fill="#fdf2f8" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="610" y="258" font-size="13" font-weight="bold" fill="#9d174d" text-anchor="middle">バルーン遊び画面</text>
+  <text x="610" y="280" font-size="11" fill="#374151" text-anchor="middle">開始 / 停止</text>
+  <text x="610" y="298" font-size="11" fill="#374151" text-anchor="middle">スコア表示</text>
+
+  <!-- arrows from top (two-way) -->
+  <line x1="330" y1="130" x2="170" y2="230" stroke="#6b7280" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="380" y1="130" x2="380" y2="230" stroke="#6b7280" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="430" y1="130" x2="600" y2="230" stroke="#6b7280" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- back arrows (nav) -->
+  <text x="215" y="185" font-size="10" fill="#9ca3af">ナビゲーションで相互遷移</text>
+
+  <!-- schedule -> log (data flow, not screen transition) -->
+  <line x1="290" y1="290" x2="240" y2="290" stroke="#10b981" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#a)"/>
+  <text x="250" y="335" font-size="10.5" fill="#065f46" text-anchor="middle">実績化でログへ反映（データフロー）</text>
+
+  <!-- Stop dialog -->
+  <rect x="520" y="345" width="180" height="55" rx="10" fill="#fce7f3" stroke="#ec4899" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <text x="610" y="368" font-size="11" fill="#9d174d" text-anchor="middle">停止時: 結果表示</text>
+  <text x="610" y="386" font-size="11" fill="#9d174d" text-anchor="middle">「おめでとう XX個 おせたね」</text>
+  <line x1="610" y1="310" x2="610" y2="345" stroke="#ec4899" stroke-width="1.2" marker-end="url(#a)"/>
+</svg>
