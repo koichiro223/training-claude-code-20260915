@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ブロック崩し</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #1a1a2e;
+      color: #eee;
+      font-family: -apple-system, "Segoe UI", sans-serif;
+    }
+    h1 {
+      margin: 16px 0 8px;
+      font-size: 22px;
+      letter-spacing: 2px;
+    }
+    #hud {
+      margin-bottom: 8px;
+      font-size: 15px;
+      letter-spacing: 1px;
+    }
+    #hud span {
+      color: #4ecca3;
+      font-weight: bold;
+    }
+    canvas {
+      background: #0f3460;
+      border-radius: 6px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      touch-action: none;
+    }
+    #hint {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <h1>ブロック崩し</h1>
+  <div id="hud">スコア: <span id="score">0</span> &nbsp;|&nbsp; 残機: <span id="lives">3</span></div>
+  <canvas id="game" width="480" height="520"></canvas>
+  <div id="hint">← → キーまたはマウス/タッチでパドルを操作。スペース or クリックでスタート／リスタート。</div>
+  <script src="main.js"></script>
+</body>
+</html>
