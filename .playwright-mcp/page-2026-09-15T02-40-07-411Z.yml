@@ -1,0 +1,4 @@
+- generic [active] [ref=e1]:
+  - heading "ブロック崩し" [level=1] [ref=e2]
+  - generic [ref=e3]: "スコア: 0 | 残機: 3"
+  - generic [ref=e5]: ← → キーまたはマウス/タッチでパドルを操作。スペース or クリックでスタート／リスタート。
